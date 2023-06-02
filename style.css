@@ -18,6 +18,11 @@ body{
     margin-bottom: 1rem;
 }
 
+.playAlarmImg{
+    height: 10rem;
+    width: 10rem;
+}
+
 .timerBox{
     background-color: #fff1f1;
     width: 90%;
@@ -67,4 +72,53 @@ body{
 
 #set:hover{
     background-color: #9f460a;
+}
+
+.alarm{
+    display: grid;
+    grid-template-columns: 8fr 2fr 2fr;
+    gap: 1em;
+    margin-top: 1.5em;
+    align-items: center;
+    border-bottom: 1px solid #898f9b;
+    padding-bottom: 0.6em;
+}
+
+.alarm input[type = 'checkbox']{
+    appearance: none;
+    height: 2em;
+    width: 3.75em;
+    background-color: #e2e2ec;
+    border-radius: 1.25em;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+}
+
+.alarm input[type='checkbox']:before{
+    position: absolute;
+    content: '';
+    background-color: #757683;
+    height: 1.43em;
+    width: 1.43em;
+    border-radius: 50%;
+    top: 0.25em;
+    left: 0.25em;
+}
+
+.alarm input[type='checkbox']:checked{
+    background-color: #d2e2ff;
+}
+
+.alarm input[type='checkbox']:checked::before{
+    background-color: #143e8d;
+    left: 2em;
+}
+
+.deleteButton{
+    background-color: transparent;
+    font-size: 1.5em;
+    color: #143e8d;
+    border: none;
+    cursor: pointer;
 }
