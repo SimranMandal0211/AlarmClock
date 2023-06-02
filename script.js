@@ -16,6 +16,21 @@ let initialHour = 0,
 const appendZero = (value) => (value < 10 ? "0" + value : value);
 
 // Search for value in object
+const searchObject = (paremeter, value) => {
+    let alarmObject,
+    objIndex,
+    exists = false;
+    alarmsArray.forEach((alarm, index) => {
+        if(alarm[paremeter] == value){
+            exists = true;
+            alarmObject = alarm;
+            objIndex = index;
+            return false;
+        }
+    });
+
+    return[exists, alarmObject, objIndex];
+};
 
 // Display Time
 function displayTimer(){
