@@ -55,7 +55,35 @@ hourInput.addEventListener('input', () => {
 minuteInput.addEventListener('input', () => {
     minuteInput.value = inputCheck(minuteInput.value);
 });
+
 // Create alarm Div
+const createAlarm = (alarmObj) => {
+    // Keys from object
+    const {id, alarmHour, alarmMinute }= alarmObj;
+    // Alarm Div
+    let alarmDiv = document.createElement('div');
+    alarmDiv.classList.add('alarm');
+    alarmDiv.setAttribute('data-id', id);
+    alarmDiv.innerHTML = `<span>${alarmHour}: ${alarmMinute}</span>`;
+    // checkbox
+    let checkbox = document.createElement('input');
+    checkbox.setAttribute('type', 'checkbox');
+    checkbox.addEventListener('click', (e) => {
+        if(e.target.checked){
+            startAlarm(e);
+        }else{
+            stopAlarm(e);
+        }
+    });
+    alarmDiv.appendChild(checkbox);
+    // Delete button
+    let deleteButton = document.createElement('button');
+    deleteButton.innerHTML = `<i class="fa-solid fa-trash-can"></i>`;
+    deleteButton.classList.add('deleteButton');
+    deleteButton.addEventListener('click', (e) => deleteAlarm(e));
+    alarmDiv.appendChild(deleteButton);
+    activeAlarms.appendChild(alarmDiv);
+};
 
 // Set Alarm
 
