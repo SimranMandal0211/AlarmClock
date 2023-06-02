@@ -19,7 +19,25 @@ const appendZero = (value) => (value < 10 ? "0" + value : value);
 
 // Display Time
 function displayTimer(){
+    let date = new Date();
+    let [hours, minutes, seconds] = [
+        appendZero(date.getHours()),
+        appendZero(date.getMinutes()),
+        appendZero(date.getSeconds()),
+    ];
 
+    // display time
+    timeRef.innerHTML = `${hours}:${minutes}:${seconds}`;
+
+    // Alarm
+    alarmsArray.forEach((alarm, index) => {
+        if(alarm.isActive){
+            if(`${alarm.alarmHour}:${alarm.alarmMinute}` === `${hours}:${minutes}`){
+                alarmSound.play();
+                alarmIndex.loop = true;
+            }
+        }
+    });
 }
 
 const inputCheck = (inputValue) => {
