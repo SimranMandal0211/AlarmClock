@@ -102,6 +102,18 @@ setAlarm.addEventListener('click', () => {
 });
 
 // Start Alarm
+    // alarmImg
+    let playAlarmImg = document.querySelector('.clockImg');
+
+const startAlarm = (e) => {
+    let searchId = e.target.parentElement.getAttribute('data-id');
+    let [exists, obj, index] = searchObject('id',searchId);
+    if(exists){
+        alarmsArray[index].isActive = true;
+    }
+    playAlarmImg.setAttribute('src', 'Alarm_Clock_Animation_High_Res.png');
+    playAlarmImg.classList.add('playAlarmImg');
+};
 
 // Stop Alarm
 
