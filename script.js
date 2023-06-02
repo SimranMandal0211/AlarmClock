@@ -127,6 +127,18 @@ const stopAlarm = (e) => {
 };
 
 // Delete alarm
+const deleteAlarm = (e) => {
+    let searchId = e.target.parentElement.parentElement.getAttribute('data-id');
+    let [exists, obj, index] = searchObject('id', searchId);
+
+    if(exists){
+        e.target.parentElement.parentElement.remove();
+        alarmsArray.splice(index, 1);
+        alarmSound.pause();
+        playAlarmImg.setAttribute('src', 'alarm-clock.png');
+    }
+};
+
 
 window.onload = () => {
     setInterval(displayTimer);
